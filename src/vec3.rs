@@ -3,24 +3,14 @@ use std::ops::{Add, Sub, Mul, Div, Neg};
 
 #[derive(Copy, Clone)]
 pub struct Vec3 {
-    x: f64,
-    y: f64,
-    z: f64,
+    pub x: f64,
+    pub y: f64,
+    pub z: f64,
 }
 
 impl Vec3 {
     pub fn new(x: f64, y: f64, z: f64) -> Vec3 {
         Vec3 { x, y, z }
-    }
-
-    pub fn x(self) -> f64 {
-        self.x
-    }
-    pub fn y(self) -> f64 {
-        self.y
-    }
-    pub fn z(self) -> f64 {
-        self.z
     }
 
     pub fn squared_length(self) -> f64 {
@@ -31,7 +21,7 @@ impl Vec3 {
         self.squared_length().sqrt()
     }
 
-    pub fn unit(self) -> Vec3 {
+    pub fn unit_vector(self) -> Vec3 {
         self / self.length()
     }
 
@@ -123,25 +113,26 @@ impl fmt::Display for Vec3 {
     }
 }
 
-// Tests 
-// let u = Vec3::new(1.0, 2.0, 3.0);
-// let v = Vec3::new(-2.0, 1.0, 2.0);
+pub fn test() {
+    let u = Vec3::new(1.0, 2.0, 3.0);
+    let v = Vec3::new(-2.0, 1.0, 2.0);
 
-// eprintln!("{:>20}  =  {}", "u", u);
-// eprintln!("{:>20}  =  {}", "v", v);
-// eprintln!("{:>20}  =  {}", "-u", -u);
-// eprintln!("{:>20}  =  {}", "u + 1.0", u + 1.0);
-// eprintln!("{:>20}  =  {}", "u - 1.0", u - 1.0);
-// eprintln!("{:>20}  =  {}", "u * -2.0", u * -2.0);
-// eprintln!("{:>20}  =  {}", "u / 0.5", u / 0.5);
-// eprintln!("{:>20}  =  {}", "u + v", u + v);
-// eprintln!("{:>20}  =  {}", "u - v", u - v);
-// eprintln!("{:>20}  =  {}", "u * v", u * v);
-// eprintln!("{:>20}  =  {}", "u / v", u / v);
-// eprintln!("{:>20}  =  {}", "u.squared_length()", u.squared_length());
-// eprintln!("{:>20}  =  {}", "u.length()", u.length());
-// eprintln!("{:>20}  =  {}", "u.unit()", u.unit());
-// eprintln!("{:>20}  =  {}", "u.dot(v)", u.dot(v));
-// eprintln!("{:>20}  =  {}", "v.dot(u)", v.dot(u));
-// eprintln!("{:>20}  =  {}", "u.cross(v)", u.cross(v));
-// eprintln!("{:>20}  =  {}", "v.cross(u)", v.cross(u));
+    eprintln!("{:>20}  =  {}", "u", u);
+    eprintln!("{:>20}  =  {}", "v", v);
+    eprintln!("{:>20}  =  {}", "-u", -u);
+    eprintln!("{:>20}  =  {}", "u + 1.0", u + 1.0);
+    eprintln!("{:>20}  =  {}", "u - 1.0", u - 1.0);
+    eprintln!("{:>20}  =  {}", "u * -2.0", u * -2.0);
+    eprintln!("{:>20}  =  {}", "u / 0.5", u / 0.5);
+    eprintln!("{:>20}  =  {}", "u + v", u + v);
+    eprintln!("{:>20}  =  {}", "u - v", u - v);
+    eprintln!("{:>20}  =  {}", "u * v", u * v);
+    eprintln!("{:>20}  =  {}", "u / v", u / v);
+    eprintln!("{:>20}  =  {}", "u.squared_length()", u.squared_length());
+    eprintln!("{:>20}  =  {}", "u.length()", u.length());
+    eprintln!("{:>20}  =  {}", "u.unit_vector()", u.unit_vector());
+    eprintln!("{:>20}  =  {}", "u.dot(v)", u.dot(v));
+    eprintln!("{:>20}  =  {}", "v.dot(u)", v.dot(u));
+    eprintln!("{:>20}  =  {}", "u.cross(v)", u.cross(v));
+    eprintln!("{:>20}  =  {}", "v.cross(u)", v.cross(u));
+}
